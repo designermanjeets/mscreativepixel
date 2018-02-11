@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="description" content="This is My First Django Blog App. By MsCreativePixel">
+    <title>Django - MsCreativePixel</title>
+    <!--Import Google Icon Font-->
+    <!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="{% static 'materialize/css/materialize.min.css' %}" media="screen,projection">
+    <link type="text/css" rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'style/msapp.css' %}" media="screen,projection">
+    <link type="text/css" rel="stylesheet" href="{% static 'style/msapp-res.css' %}" media="screen,projection">
+</head>
+
+<body>
+    <header class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <section><!-- class="container"-->
+                    <a href="#!" class="brand-logo">
+                        <img src="{% static 'img/mscreativepixel_logo.png' %}" alt="MsCreativePixel.Com"/>
+                    </a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        {% for navitem in navitems %}
+                            <li class="{% if navitem.url in request.path %} active {% endif %}"><a href="{{navitem.url}}">{{navitem.title}}</a></li>
+                        {% endfor %}
+                        <li class="contactus"><a class="waves-effect waves-light btn">Contact Us</a></li>
+                    </ul>
+                </section>
+            </div>
+        </nav>
+    </header>
+
+    {% if homepage == True %} 
+    <section class="banner">
+       {% include 'msblog/banner.html' %} 
+    </section>
+    {% endif %}
+
+    <section class="container-fluid">
+
+        {% block content %} {% endblock %}
+
+    </section>
+
+    <footer class="page-footer bg-purple-light white-text">
+        <div class="container py-3">
+            <div class="row pt-3">
+                <div class="col l6 s12">
+                    <h4 class="mb-3 pb-3">Upgrading Your eCommerce Platform</h4>
+                    <div class="mt-3">
+                        <p class="text-white">70% of retail technology budgets are spent patching and maintaining legacy eCommerce code.</p>
+                        <p class="text-white">Download our whitepaper and uncover the pros and cons of upgrading, migrating, or replacing your eCommerce platform.</p>
+                    </div>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h4>You will be redirected to the download after filling out this form.</h4>
+                    <div class="row">
+                        <form class="col s12" autocomplete="off">
+                            <div class="row mb-0">
+                                <div class="input-field col s12">
+                                    <input id="first_name" type="text" class="validate">
+                                    <label for="first_name" class="active">First Name</label>
+                                </div>
+                            </div>
+                            <div class="row mb-0">
+                                <div class="input-field col s12">
+                                    <input id="last_name" type="text" class="validate" autocomplete="off">
+                                    <label for="last_name">Last Name</label>
+                                </div>
+                            </div>
+                            <div class="row mb-0">
+                                <div class="input-field col s12">
+                                <input id="password" type="password" class="validate" autocomplete="off">
+                                <label for="password">Password</label>
+                                </div>
+                            </div>
+                            <div class="row mb-0">
+                                <div class="input-field col s12">
+                                    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                                        <i class="material-icons right">send</i>
+                                    </button>
+                                            
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright bg-purple">
+            <div class="container center-align py-2">
+                <strong>© MsCreativePixel.io, 2018. All Rights Reserved. Privacy Policy</strong>
+            </div>
+        </div>
+    </footer>
+
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="{% static 'jQuery/jquery-3.2.1.min.js' %}"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script type="text/javascript" src="{% static 'materialize/js/materialize.min.js' %}"></script>
+</body>
+
+</html>

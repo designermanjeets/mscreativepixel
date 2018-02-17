@@ -90,10 +90,10 @@ WSGI_APPLICATION = 'mscreativepixel.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'msdb',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'mscreativepixeldb',
         'USER': 'manjeet',
-        'PASSWORD': '',
+        'PASSWORD': 'Manjeet@123',
         'HOST': 'localhost',
         'PORT': '',
     }

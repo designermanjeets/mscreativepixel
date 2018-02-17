@@ -139,3 +139,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # HEADER 
+# The simplest case: just add the domain name(s) and IP addresses of your Django server
+# ALLOWED_HOSTS = [ 'example.com', '203.0.113.5']
+# To respond to 'example.com' and any subdomains, start the domain with a dot
+# ALLOWED_HOSTS = ['.example.com', '203.0.113.5']
+ALLOWED_HOSTS = ['mscreativepixel.com', '159.65.33.70']

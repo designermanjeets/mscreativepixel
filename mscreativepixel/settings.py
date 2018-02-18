@@ -137,6 +137,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, '/static/')
 
 # HEADER 
 # The simplest case: just add the domain name(s) and IP addresses of your Django server
